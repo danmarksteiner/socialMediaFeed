@@ -11,10 +11,10 @@ spec:
     metadata:
       labels:
         app: socialmediafeed
-      spec:
-        containers:
-          - name: socialmediafeed
-            image: dmarksteiner/socialmediafeed
+    spec:
+      containers:
+        - name: socialmediafeed
+          image: dmarksteiner/socialmediafeed
 ---
 apiVersion: v1
 kind: Service
