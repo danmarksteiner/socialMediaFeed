@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: feed-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: socialmediafeed
+  template:
+    metadata:
+      labels:
+        app: socialmediafeed
+      spec:
+        containers:
+          - name: socialmediafeed
+            image: dmarksteiner/socialmediafeed
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: socialmediafeed-srv
+spec:
+  selector:
+    app: socialmediafeed
+  ports:
+    - name: socialmediafeed
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
